@@ -22,7 +22,7 @@ const Products = ({ products }) => {
               onClick={() => dispatch(addToCart(item))}
               className="flex cursor-pointer gap-2 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[60%] py-[10px] items-center justify-center bg-white rounded-full border-[#AD8A85] border-2 hover:border-[#C73B0F] hover:text-[#C73B0F] transition-all duration-200 ease-in-out"
             >
-              <img src="../../public/images/icon-add-to-cart.svg" alt="img" />
+              <img src="../.././public/images/icon-add-to-cart.svg" alt="img" />
               <p>Add to Cart</p>
             </div>
           ) : (
@@ -32,7 +32,7 @@ const Products = ({ products }) => {
                 className="px-3 font-bold text- cursor-pointer active:scale-95"
               >
                 <img
-                  src="../../public/images/icon-decrement-quantity.svg"
+                  src="../.././public/images/icon-decrement-quantity.svg"
                   alt="img"
                   className="border-2 rounded-full w-[24px] h-[24px] p-1"
                 />
@@ -43,7 +43,7 @@ const Products = ({ products }) => {
                 className="px-3 font-bold text-xl cursor-pointer active:scale-95"
               >
                 <img
-                  src="../../public/images/icon-increment-quantity.svg"
+                  src="../.././public/images/icon-increment-quantity.svg"
                   alt="img"
                   className="border-2 rounded-full w-[24px] h-[24px] p-1"
                 />

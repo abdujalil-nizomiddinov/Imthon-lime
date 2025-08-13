@@ -10,7 +10,7 @@ export default function Modal({ onClose, items, totalPrice }) {
         </button>
         <div className="flex flex-col gap-6">
           <img
-            src="../../public/images/icon-order-confirmed.svg"
+            src="../.././public/images/icon-order-confirmed.svg"
             alt="img"
             className="w-[80px]"
           />

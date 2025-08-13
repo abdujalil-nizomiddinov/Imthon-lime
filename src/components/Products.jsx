@@ -22,7 +22,7 @@ const Products = ({ products }) => {
               onClick={() => dispatch(addToCart(item))}
               className="flex cursor-pointer gap-2 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[60%] py-[10px] items-center justify-center bg-white rounded-full border-[#AD8A85] border-2 hover:border-[#C73B0F] hover:text-[#C73B0F] transition-all duration-200 ease-in-out"
             >
-              <img src="../public/images/icon-add-to-cart.svg" alt="img" />
+              <img src="../../public/images/icon-add-to-cart.svg" alt="img" />
               <p>Add to Cart</p>
             </div>
           ) : (

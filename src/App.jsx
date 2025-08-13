@@ -62,7 +62,7 @@ function App() {
           ) : (
             <div className="flex flex-col items-center justify-center w-full">
               <img
-                src=".././public/images/illustration-empty-cart.svg"
+                src="../public/images/illustration-empty-cart.svg"
                 alt="img"
                 className="my-8"
               />

@@ -4,8 +4,11 @@ import { useSelector } from "react-redux";
 import Products from "./components/Products";
 import { useState } from "react";
 import Modal from "./components/Modal";
+import { useDispatch } from "react-redux";
+import { clearCart } from "./app/feature/cartSlice";
 
 function App() {
+  const dispatch = useDispatch();
   const { data: datas, loading } = useDesserts();
   const data = datas.data || [];
   console.log(data);
@@ -31,8 +34,18 @@ function App() {
           </ul>
         )}
 
-        <section className="bg-white rounded-lg shadow p-4 max-sm:w-full w-[300px] max-lg:fixed max-sm:bottom-0 bottom-2">
+        <section className="bg-white relative rounded-lg shadow p-4 max-sm:w-full w-[300px] max-lg:fixed max-sm:bottom-0 max-lg:bottom-2">
           <h2 className="font-bold text-lg mb-4">Your Cart ({totalCount})</h2>
+          {cartItems.length > 0 ? (
+            <button
+              onClick={() => dispatch(clearCart())}
+              className=" absolute top-0 right-5 bg-red-500 py-1 px-4 rounded-lg text-white cursor-pointer hover:bg-red-700 transition-all duration-200 ease-initial"
+            >
+              Clear
+            </button>
+          ) : (
+            <></>
+          )}
 
           {cartItems.length > 0 ? (
             <div>

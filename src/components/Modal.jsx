@@ -1,4 +1,9 @@
+import { useDispatch } from "react-redux";
+import { clearCart } from "../app/feature/cartSlice";
+
 export default function Modal({ onClose, items, totalPrice }) {
+  const dispatch = useDispatch();
+
   return (
     <div className="fixed inset-0 bg-black/80 flex items-center justify-center">
       <div className="bg-white rounded-lg p-6 w-[600px] relative">
@@ -64,6 +69,7 @@ export default function Modal({ onClose, items, totalPrice }) {
         <div className="flex justify-end gap-2 w-full">
           <button
             onClick={() => {
+              dispatch(clearCart());
               onClose();
             }}
             className="px-4 py-2 w-full cursor-pointer rounded-full bg-[#C73B0F] text-white hover:bg-[#a42f0d]"

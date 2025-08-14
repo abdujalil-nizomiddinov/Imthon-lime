@@ -14,13 +14,17 @@ const Products = ({ products }) => {
           <img
             src={item.image.desktop}
             alt={item.category}
-            className="rounded-2xl border-transparent hover:border-[#C73B0F] border-3"
+            className={`" ${
+              !cartItem || cartItem.quantity < 1
+                ? "hover:border-[#C73B0F] border-transparent rounded-2xl   border-3 transition-all duration-200 ease-in-out"
+                : "border-[#C73B0F] rounded-2xl  border-3 transition-all  duration-300 ease-in-out"
+            } "`}
           />
 
           {!cartItem || cartItem.quantity < 1 ? (
             <div
               onClick={() => dispatch(addToCart(item))}
-              className="flex cursor-pointer gap-2 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[60%] py-[10px] items-center justify-center bg-white rounded-full border-[#AD8A85] border-2 hover:border-[#C73B0F] hover:text-[#C73B0F] transition-all duration-200 ease-in-out"
+              className="flex cursor-pointer hover:border-[#C73B0F] gap-2 absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[60%] py-[10px] items-center justify-center bg-white rounded-full border-[#AD8A85] border-2 hover:text-[#C73B0F] transition-all duration-200 ease-in-out"
             >
               <img src="/images/icon-add-to-cart.svg" alt="img" />
               <p>Add to Cart</p>

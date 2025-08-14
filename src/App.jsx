@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <main className="flex items-start justify-center gap-10 p-6">
+      <main className="flex items-start justify-center gap-10 p-6 max-lg:pb-100">
         {loading ? (
           <div className="fixed top-0 bottom-0 left-0 right-0 w-full h-full bg-black/80 flex items-center justify-center">
             <h2 className="font-bold font-mono text-2xl text-white ease-in-out">
@@ -26,29 +26,45 @@ function App() {
             </h2>
           </div>
         ) : (
-          <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 flex-1">
+          <ul class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 place-items-center">
             <Products products={data} />
           </ul>
         )}
 
-        <section className="bg-white rounded-lg shadow p-4 w-[300px]">
+        <section className="bg-white rounded-lg shadow p-4 max-sm:w-full w-[300px] max-lg:fixed max-sm:bottom-0 bottom-2">
           <h2 className="font-bold text-lg mb-4">Your Cart ({totalCount})</h2>
 
           {cartItems.length > 0 ? (
             <div>
-              {cartItems.map((item) => (
-                <div key={item.id} className="flex justify-between mb-2">
-                  <span>
-                    {item.name} x {item.quantity}
-                  </span>
-                  <span>${(item.price * item.quantity).toFixed(2)}</span>
-                </div>
-              ))}
-
-              <hr className="my-3" />
-              <div className="flex justify-between font-bold">
-                <span>Total:</span>
-                <span>${totalPrice.toFixed(2)}</span>
+              <div className="max-h-[300px] overflow-y-auto pr-2">
+                {items.map((item) => (
+                  <div
+                    key={item.id}
+                    className="flex max-h-[300px] overflow-y-auto justify-between mb-12 gap-4"
+                  >
+                    <img
+                      src={item.image.thumbnail}
+                      alt="img"
+                      className="w-[70px] h-[70px]"
+                    />
+                    <div className="flex flex-col justify-between w-full">
+                      <div className="flex justify-between">
+                        <span>{item.name}</span>
+                        <span className=" text-xl translate-y-[50%] font-[300]">
+                          ${(item.price * item.quantity).toFixed(2)}
+                        </span>
+                      </div>
+                      <div className="flex gap-3">
+                        <span className="font-mono text-[#C73B0F]">
+                          {item.quantity}x
+                        </span>
+                        <span className="text-[#87635A] font-[300]">
+                          @ ${item.price}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
 
               <button

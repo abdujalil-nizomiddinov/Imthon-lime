@@ -4,9 +4,9 @@ export default function Modal({ onClose, items, totalPrice }) {
       <div className="bg-white rounded-lg p-6 w-[600px] relative">
         <button
           onClick={onClose}
-          className="px-3 py-3 text-white absolute top-2 right-2 rounded-full bg-red-600 hover:bg-red-700 cursor-pointer"
+          className="px-3 py-0 pb-1 text-white text-2xl absolute top-2 right-2 rounded-lg bg-red-600 hover:bg-red-700 cursor-pointer"
         >
-          Exit
+          &#215;
         </button>
         <div className="flex flex-col gap-6">
           <img
@@ -15,14 +15,16 @@ export default function Modal({ onClose, items, totalPrice }) {
             className="w-[80px]"
           />
           <div className="mb-8">
-            <h2 className="text-6xl font-bold">Order Confirmed</h2>
+            <h2 className="text-6xl max-sm:text-4xl font-bold">
+              Order Confirmed
+            </h2>
             <p className="text-[#87635A] text-lg font-[300]">
               We hope you enjoy your food!
             </p>
           </div>
         </div>
         <div className="m-8">
-          <div className="max-h-[300px] overflow-y-auto pr-2">
+          <div className="max-h-[300px] overflow-y-auto pr-2 max-sm:max-w-full max-sm:overflow-x-auto max-sm:pb-2">
             {items.map((item) => (
               <div
                 key={item.id}
@@ -34,13 +36,13 @@ export default function Modal({ onClose, items, totalPrice }) {
                   className="w-[60px]"
                 />
                 <div className="flex flex-col justify-between w-full">
-                  <div className="flex justify-between">
-                    <span>{item.name}</span>
-                    <span className=" text-xl translate-y-[50%] font-[300]">
+                  <div className="flex justify-between max-[350px]:flex-col">
+                    <span className="max-[350px]:text-xs">{item.name}</span>
+                    <span className="max-[350px]:text-sm text-xl max-[350px]:translate-y-[0] translate-y-[50%] font-[300]">
                       ${(item.price * item.quantity).toFixed(2)}
                     </span>
                   </div>
-                  <div className="flex gap-3">
+                  <div className="flex gap-3 max-[350px]:text-xs">
                     <span className="font-mono text-[#C73B0F]">
                       {item.quantity}x
                     </span>
